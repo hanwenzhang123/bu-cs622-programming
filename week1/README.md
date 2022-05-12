@@ -7,23 +7,24 @@ title: 051022-note
 - A: First, we would identify the product or the information of the project that we're going to build in, and then gather some information about it
 - A: ideally whatever user stories, what are the what is the business contacts, from that business context, and you can start to derive out the architecture
 
-software components are written as a functional unit, you create a function you write some code in it and you work with.
+##
+software components are written as a functional unit, you create a function you write some code in it and you work with.\
 we do some researchers and create a plan, and this, this leads to the introductions of object oriented Program.
 
-variable, attribute, property, field
-function, method, routine, sub routine
-
+## name
+- variable, attribute, property, field
+- function, method, routine, sub routine
 
 ## OOP
-In object oriented programs, we have a class, class is the source of the plan, and then we are instantiate a class.
-And this creates an object, so the object is the implementation of the class that is physically available 
-physically available: some place in the memory in the RAM is occupied for that 
-From the JVM to RAM, it occupies some space -> only when the class is instantiated, and the object is created
+- In object oriented programs, we have a class, class is the source of the plan, and then we are instantiate a class.\
+- And this creates an object, so the object is the implementation of the class that is physically available\
+- physically available: some place in the memory in the RAM is occupied for that\
+- From the JVM to RAM, it occupies some space -> only when the class is instantiated, and the object is created
 
 ## constructor
-At least one constructor, all the classes are sub-class of an object
-super() - call parent consturctor, the first statements of every constructor is called to the patent class constructors
-this() - refers to the constructor of the class
+- At least one constructor, all the classes are sub-class of an object\
+- super() - call parent consturctor, the first statements of every constructor is called to the patent class constructors\
+- this() - refers to the constructor of the class
 
 ## global variables
 - immediately after we define class
@@ -34,7 +35,7 @@ this() - refers to the constructor of the class
 - global variable/method shared among all the instances(objects) of class
 
 ## naming convention 
-- https://www.javatpoint.com/java-naming-conventions
+https://www.javatpoint.com/java-naming-conventions
 - class name: CapitalLetter
 - object name (instance of a class): lowercase
 - method name: camelCase
@@ -44,9 +45,9 @@ this() - refers to the constructor of the class
 
 
 ## access control
-private: only available within the class, not outside the class
-default: package access, member in another class but same package
-protected: member in superclass in differnt package and same package
+private: only available within the class, not outside the class\
+default: package access, member in another class but same package\
+protected: member in superclass in differnt package and same package\
 public: different package and different package
 
 
@@ -55,18 +56,18 @@ public: different package and different package
 - usually all class parameters will be defined as private, and we use getter and setter methods to access them
 - getter/setter hides the unsafe access to the class parameters/field
 
-####Inheritance
+#### Inheritance
 - extends
 - reason: lots of code is repetition - inheritance defines a relationship between class and common attributes.
 - a subclass inherits everything, but can provide a new definition to a method call overriding
 
-####Polymorphism
+#### Polymorphism
 - allow current part of the system to interact with a new object without concern for specific properties of the new object
 - hiding the details in communication, do not go into the details
 - it has the ability that an object can take many form
 - a class that can pass "is a" test is considered to be polymorphic - newCar is a Car, newCar is a ElectricCar
 
-####Abstraction
+#### Abstraction
 - hiding implementation details from the user
 Abstract Class: can not be instantiated, but its inherited class can
 
