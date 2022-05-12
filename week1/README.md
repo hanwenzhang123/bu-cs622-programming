@@ -50,13 +50,18 @@ https://www.javatpoint.com/java-naming-conventions
 - public: different package and different package
 
 
+## Downcasting vs Upcasting
+- upcasting: parent to be a child
+- downcasting(raise error): child to be parent, but child has more details so can not be parent
+
+
 ## OOP Concepts
 #### Encapsulation
 - usually all class parameters will be defined as private, and we use getter and setter methods to access them
 - getter/setter hides the unsafe access to the class parameters/field
 
 #### Inheritance
-- extends
+- extends, single inheritance, a class can extend only one class
 - reason: lots of code is repetition - inheritance defines a relationship between class and common attributes.
 - a subclass inherits everything, but can provide a new definition to a method call overriding
 
@@ -69,16 +74,31 @@ https://www.javatpoint.com/java-naming-conventions
 #### Abstraction
 - hiding implementation details from the user
 
-###### Abstract Class
-- can not be instantiated, but its inherited class can
+##### Abstract Class
+- can not be instantiated (we can not create object from this class)
+- can extend the class and its inherited class can be instantiated
+- it is a concept that is required to be implemented by its subclasses, should not contains the body, it only has method names (like a template)
+- substract class/method can not be private or final
+- an abstract class can contain non-abstract method, but not vice versa
+
+##### Interface
+- we can not instantiate the interface, it does not have a constructor, can only be implemented
+- can implements multiple interface, like a student can be a parent, an employee, a son etc
+- all field should be defined as static and final
+- all methods should be public and abstract
+- `public class Desk implements Shape, Weight {}`
+- `public abstract int getWeight()` - need the keyword abstract for the menthod inside the interface
 
 
-## Downcasting vs Upcasting
-- upcasting: parent to be a child
-- downcasting(raise error): child to be parent, but child has more details so can not be parent
+## Abstraction vs Encapsulation
+#### Abstraction
+- focus on removing unnecessary information
+- define it by using Abstract and Interface keyword
+- focus on design
 
+#### Encapsulation
+- focus on keeping the data safe from outside access and misuse
+- define it by using access control keywords like public, private and protected
+- focus on the implementation
 
-
-
-
-
+ 
