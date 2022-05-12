@@ -7,7 +7,6 @@ title: 051022-note
 - A: First, we would identify the product or the information of the project that we're going to build in, and then gather some information about it
 - A: ideally whatever user stories, what are the what is the business contacts, from that business context, and you can start to derive out the architecture
 
-##
 software components are written as a functional unit, you create a function you write some code in it and you work with.\
 we do some researchers and create a plan, and this, this leads to the introductions of object oriented Program.
 
