@@ -16,14 +16,14 @@ we do some researchers and create a plan, and this, this leads to the introducti
 - function, method, routine, sub routine
 
 ## OOP
-- In object oriented programs, we have a class, class is the source of the plan, and then we are instantiate a class.\
-- And this creates an object, so the object is the implementation of the class that is physically available\
-- physically available: some place in the memory in the RAM is occupied for that\
+- In object oriented programs, we have a class, class is the source of the plan, and then we are instantiate a class.
+- And this creates an object, so the object is the implementation of the class that is physically available
+- physically available: some place in the memory in the RAM is occupied for that
 - From the JVM to RAM, it occupies some space -> only when the class is instantiated, and the object is created
 
 ## constructor
-- At least one constructor, all the classes are sub-class of an object\
-- super() - call parent consturctor, the first statements of every constructor is called to the patent class constructors\
+- At least one constructor, all the classes are sub-class of an object
+- super() - call parent consturctor, the first statements of every constructor is called to the patent class constructors
 - this() - refers to the constructor of the class
 
 ## global variables
@@ -45,10 +45,10 @@ https://www.javatpoint.com/java-naming-conventions
 
 
 ## access control
-private: only available within the class, not outside the class\
-default: package access, member in another class but same package\
-protected: member in superclass in differnt package and same package\
-public: different package and different package
+- private: only available within the class, not outside the class\
+- default: package access, member in another class but same package\
+- protected: member in superclass in differnt package and same package\
+- public: different package and different package
 
 
 ## OOP Concepts
@@ -69,8 +69,9 @@ public: different package and different package
 
 #### Abstraction
 - hiding implementation details from the user
-Abstract Class: can not be instantiated, but its inherited class can
 
+###### Abstract Class
+- can not be instantiated, but its inherited class can
 
 
 ## Downcasting vs Upcasting
