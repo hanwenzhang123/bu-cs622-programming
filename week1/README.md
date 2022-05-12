@@ -102,3 +102,25 @@ https://www.javatpoint.com/java-naming-conventions
 - focus on the implementation
 
  
+## Assignment 1
+```
+Class Bullet {
+Size
+Damage
+}
+
+Class SpaceShip {
+Boolean shooting
+Public shoot ()
+Bullet	
+gotHit
+}
+
+Class Alien{
+Type
+Speed
+Die 
+}
+
+```
+Aliens Spaceship both inheritance movement like speed pace direction (interface) alien and spaceship override the movement interface
