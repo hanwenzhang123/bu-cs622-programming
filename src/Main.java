@@ -43,10 +43,16 @@ public class Main {
 
         // using overloading here
         // when the health point is less or equal to 0, the character dies
-        marioPosition.goRight(20);
-        marioPosition.goUp();
+        marioPosition.goRight(300);
+        marioPosition.goUp(220);
         gorillaPosition.goDown(100);
-        gorillaPosition.goLeft();
+        gorillaPosition.goDown();
+        gorillaPosition.goLeft(20);
+        marioPosition.goLeft();
+        System.out.println(marioPosition.location());
+        System.out.println(gorillaPosition.location());
+        System.out.println(princessPosition.location());
+
         mario.damaged();
         mario.damaged(mediumCaskDamagePoint);
         gorilla.damaged(smallCaskDamagePoint);
@@ -65,12 +71,13 @@ public class Main {
 
         if (gorillaHealthPoints <= 0) {
             princess.setSecured(true);
+            gorilla.die();
         } else if (marioHealthPoints <= 0) {
             princess.setSecured(false);
+            mario.die();
         }
 
         boolean princessSecured = princess.getSecured();
         System.out.println("Princess is secured? " + princessSecured);
-        gorilla.die();
     }
 }
