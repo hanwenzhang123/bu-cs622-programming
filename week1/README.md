@@ -14,6 +14,17 @@ we do some researchers and create a plan, and this, this leads to the introducti
 - variable, attribute, property, field
 - function, method, routine, sub routine
 
+## package
+- Packages and directories exist in two different scopes. 
+- A package exists virtually within a class structure as a container for a group of classes and subpackages. 
+- A directory exists in a file system as a container for a group of files and subdirectories.
+- In Package, any class within the same package can use another class without any special declaration. 
+- If a class is another package, you would use the import statement, it is required to have import package for the .java files that generate those classes.
+```
+import com.bu.cs622.*;  //to get all classes 
+import com.bu.cs622.ClassName;  //get one class.
+```
+
 ## OOP
 - In object oriented programs, we have a class, class is the source of the plan, and then we are instantiate a class.
 - And this creates an object, so the object is the implementation of the class that is physically available
