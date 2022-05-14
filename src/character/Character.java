@@ -1,6 +1,7 @@
 package character;
 
 public abstract class Character {
+    //abstract can not be private or final.
     public int healthPoints;
 
     public Character() {
@@ -19,5 +20,6 @@ public abstract class Character {
     public abstract void damaged();
     public abstract void damaged(int point);
 
-    //abstract can not be private or final.
+//    public abstract void fight();
+//    public abstract void hide();
 }
