@@ -20,6 +20,18 @@ we do some researchers and create a plan, and this, this leads to the introducti
 - physically available: some place in the memory in the RAM is occupied for that
 - From the JVM to RAM, it occupies some space -> only when the class is instantiated, and the object is created
 
+## class vs object
+- class is like a blueprint
+- object is the instance of the class
+
+## method vs function
+- same thing
+- method is a function that is attached to an object
+
+## parameter vs argument
+- parameter is method definition
+- when invoke the function, inside () is the argument
+
 ## constructor
 - At least one constructor, all the classes are sub-class of an object
 - super() - call parent consturctor, the first statements of every constructor is called to the patent class constructors
@@ -42,13 +54,11 @@ https://www.javatpoint.com/java-naming-conventions
 - final name: UPPERCASE
 - package name: lowercase
 
-
 ## access control
 - private: only available within the class, not outside the class\
 - default: package access, member in another class but same package\
 - protected: member in superclass in differnt package and same package\
 - public: different package and different package
-
 
 ## Downcasting vs Upcasting
 - upcasting: parent to be a child
@@ -86,6 +96,7 @@ https://www.javatpoint.com/java-naming-conventions
 - can implements multiple interface, like a student can be a parent, an employee, a son etc
 - all field should be defined as static and final
 - all methods should be public and abstract
+- good for reusibility
 - `public class Desk implements Shape, Weight {}`
 - `public abstract int getWeight()` - need the keyword abstract for the menthod inside the interface
 
