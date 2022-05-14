@@ -19,7 +19,4 @@ public abstract class Character {
     public abstract void die();
     public abstract void damaged();
     public abstract void damaged(int point);
-
-//    public abstract void fight();
-//    public abstract void hide();
 }
