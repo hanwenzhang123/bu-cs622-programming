@@ -3,8 +3,8 @@ package map;
 //This class is implemented from multiple interfaces
 public class Position implements Left, Right, Up, Down {
     //final variable value can't be changed
-    public static final int MAP_WIDTH = 500;
-    public static final int MAP_HEIGHT = 500;
+    private static final int MAP_WIDTH = 500;
+    private static final int MAP_HEIGHT = 500;
     private int xAxis;
     private int yAxis;
     private String character;
