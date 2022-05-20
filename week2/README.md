@@ -75,6 +75,8 @@ catch (Exception ex){
 
 ## stream
 - never ending dataset
+- we do not know the start and the end, data is coming and going
+- we create window (block) and then we analyze, like online financial transaction
 
 
 
