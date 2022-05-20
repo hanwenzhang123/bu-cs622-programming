@@ -68,7 +68,13 @@ catch (Exception ex){
 - text files (cvs, json) 
 - binary files (image, audio, video)
 
+## path
+- createTempFile - when our memory is out of space, when we turn off system, restart jvm, the file will be removed
+- getPath() - A path is a unique location to a file or a folder in a file system of an OS, only the rest if relative path is provided:
+- getAbsolutePath() - with the current user directory, current folder, path, plus the file, the whole path regardless if relative path is provided
 
+## stream
+- never ending dataset
 
 
 
