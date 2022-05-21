@@ -73,10 +73,55 @@ catch (Exception ex){
 - getPath() - A path is a unique location to a file or a folder in a file system of an OS, only the rest if relative path is provided:
 - getAbsolutePath() - with the current user directory, current folder, path, plus the file, the whole path regardless if relative path is provided
 
+## temporary file
+- something written on disk because either memories full or occupies too much space
+- if electricity of computer shuts off, we need these files temporarily, then we can remove it
+
+## absolute path vs relative path
+- absolute: everything included, the path how operating system access the file
+- relative: a path relative to another directory
+
 ## stream
-- never ending dataset
-- we do not know the start and the end, data is coming and going
-- we create window (block) and then we analyze, like online financial transaction
+- never ending dataset, constant
+- we do not know the start and the end, data is coming and going, you collect a partial of the data
+- we create window (block) and then we analyze, like online financial transaction, app log files
+
+## java.io
+- java consider working with files like working with stream
+
+## low level vs high level
+- low level stream directly connect to the file on the disk
+- high level stream is built on top of another stream using wrapping, not directly connected (preferred, faster)
+
+## buffer
+- when it says cache or buffer, we make a bigger chunk into the memory and instead of writing the bytes per bytes
+- we just write it once when the buffer is good, you make another buffer united once
+- instead of one byte to one byte, better to do 10 bytes then write it once
 
 
+# Regular Expression
+- match a pattern or a character
 
+## java
+- boolean matches()
+- boolean find()
+- boolean find(int start)
+- String group()
+- int start()
+- int end()
+- int groupCount()
+
+## StringBuilder
+- more functionality and more faster than string
+- do manipulatuon on the stream in runtime
+- `StringBuilder sb = new StringBuilder("Hello")`
+
+## examples
+- append()
+- insert()
+- delete()
+- deleteCharAt()
+- replace()
+- reverse()
+
+ 
