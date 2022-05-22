@@ -9,7 +9,7 @@ public class Main {
 //        System.out.println("------Merge Content------");
 //        MergeContent.main(new String[]{file1, file2, file3});
 
-//        System.out.println("------Testing Merged Content------");
+//        System.out.println("------Testing Merged Content Above------");
 //        ReadFile.mergeContentTesting(days);
 
         System.out.println("------Search Keyword by Default Keyword------");
