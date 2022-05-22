@@ -53,7 +53,7 @@ public class MergeContent {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
-        catch (Exception e) {
+        catch (Exception e) {   //general exception
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
