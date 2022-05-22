@@ -48,13 +48,15 @@ Don't forget to import the class to your IDE, and build it with the library.
 In this question, I implemented exception handling through a try/catch + finally block to catch runtime errors during runtime for IO, 
 where in the try block I write code, catch block to catch exception as specific as possible, finally block will always run at the end.
 
-Since write a code to merge the content of all days into a single file,
+Since write a code to merge the content of all days into a single file, I looped through to get the open_date and close_date for each dataset of each file,
+and then write the json object to a new file called `days.json`.
 
 ## Search Keyword
 In this question, I implemented regular expression which matches a pattern or a character, 
 and on top of the regular expression, also I have implemented exception handling for IO through a try/catch + finally block.
 
-Since the question needs to search for a given keyword, 
+Since the question needs to search for a given keyword, I provided some kind of variations through the concept of overloading. 
+You can search multiple files, or a single file by provided default keyword, or you can put in the keyword and/or the specific file you would like to search as argument.
 
 ## JSON Data
 [Data Resource](https://webrobots.io/indiegogo-dataset)
