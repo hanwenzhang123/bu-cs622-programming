@@ -12,9 +12,9 @@ public class SearchKeyword {
 
     public static void main(String[] args) {
         try{
-            String[] keyword = {"Happy", "Depression", "Sweat"};
-            String key1 = "funds_raised_percent";
-            String key2 = "close_date";
+            String[] keyword = {"Happy", "Depression", "Sweat"};    //provided default keywords
+            String key1 = "funds_raised_percent";  //the key of the information which will be printed out when keyword matched in that dataset
+            String key2 = "close_date";  //the key of the information which will be printed out when keyword matched in that dataset
 
             for (int i = 0; i < args.length; i++) {
                 JSONParser parser = new JSONParser();
@@ -132,7 +132,7 @@ public class SearchKeyword {
             JSONObject objectInfo = (JSONObject) objectData;
 
 
-            for (String each : keyword){
+            for (String each : keyword){        //check each available keyword
                 SearchPattern(each, key1, key2, objectInfo);
             }
         }
@@ -145,16 +145,16 @@ public class SearchKeyword {
             Object objectData = jsonObject.get("data");
             JSONObject objectInfo = (JSONObject) objectData;
 
-            SearchPattern(keyword, key1, key2, objectInfo);
+            SearchPattern(keyword, key1, key2, objectInfo);     //pass the given keyword
         }
     }
 
     private static void SearchPattern(String keyword, String key1, String key2, JSONObject objectInfo) {
-        Pattern pattern = Pattern.compile(keyword, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(objectInfo.toString());
-        boolean matchFound = matcher.find();
+        Pattern pattern = Pattern.compile(keyword, Pattern.CASE_INSENSITIVE);   //does not care about letter case
+        Matcher matcher = pattern.matcher(objectInfo.toString());       //check matching
+        boolean matchFound = matcher.find();        //if found the match
 
-        if (matchFound) {
+        if (matchFound) {       //when we have the match found, this block will print out the values for close_date, funds_raised_percent, keyword
             Object fundsPercent = objectInfo.get(key1);
             Object closeDate = objectInfo.get(key2);
 
@@ -162,7 +162,7 @@ public class SearchKeyword {
             obj.put("keyword", keyword);
             obj.put(key1, fundsPercent);
             obj.put(key2, closeDate);
-//            obj.put("data", objectInfo);
+//            obj.put("data", objectInfo);      //the entire json object will also be printed if needed
             System.out.println(obj);
         }
     }
