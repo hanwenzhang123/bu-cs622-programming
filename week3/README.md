@@ -37,12 +37,25 @@ title: 052422-note
 
 ## hash
 - we store our objects into collections, and those objects get applied to mathematical functions that applied to that object, and then an integer number is returned to it
-- hash as mathematical information, we give some objects to the hash, hash translates to some address inside the memory => access information very rapidly
+- hash as mathematical information, we give some objects to the hash, hash translates to some address inside the memory
+- access information very rapidly
+- not sorted
 
 ## tree
-- store the information in the tree is very fast
 - the location where we put the information in the tree in every step we can also get rid of lots of information
 - we order the information and put them in tree instead of comparing data 
+- store the information in the tree is very fast
+- sorted
+
+## set
+- remove duplicate object entries, very fast
+- unordered and unindexed collection having no duplicate elements
+- `set.iterator().next();` - will return the first element
+
+## iterator
+- Iterator iter = listName.iterator()
+- iter.hasNext()  // if it has the next line
+- iter.next()   //get no pointer exception when gets to the last 
 
 ## common collection methods
 - boolean add(E element)
@@ -68,15 +81,65 @@ title: 052422-note
 - both queue and list in java
 - advantages: we can read/add/remove from both beginning or end of the linkedlist
 
-## iterator
-- Iterator iter = listName.iterator()
-- iter.hasNext()  // if it has the next line
-- iter.next()   //get no pointer exception when gets to the last 
+## ArrayDeque
+- growable array that allows us to add or remove an element from both sides.
+- ArrayDeque implementation can be used as a Stack (Last-In-First-Out) or a Queue(First-In-First-Out)
 
+## Map 
+- key value style of data
+- HashMap() - stores map keys in a hash table, since using hash, it is one of the fastest collection to store data => O(1)
+- TreeMap() - very fast but not as fast as HashMap. keys are always sorted => O(n log n)
 
+## Map Example 
+- `Map<String, String> map = new TreeMap<>();` => orderedok, 
+- `Map<String, String> map = new HashMap<>();` => not ordered
+- `map.put("koala", "bamboo");`
 
-
+## performance
+- array is faster than vector and map
+- arrayDeque -> arrayList -> vector -> HashMap -> TreeMap
 
 # Generics
+## primitives
+- primitives are faster, we can store a reasonable amount of them in memory
+- there are 7 primitives
+1. boolean -> Boolean
+2. byte -> Byte
+3. int -> Integer
+4. long -> Long
+5. double -> Double
+6. char -> Character
+7. float -> Float
+
+## <> diamond operator
+- after java 5, we use this operator for type casting
+- autoboxing, we can convert them to the desired data type
+
+```js
+List<String> sampleArray = new ArrayList<String>(); 
+List<String> sampleArray = new ArrayList<>(); 
+```
+- both above are the same, accepting the same string, only string
+
+## generic programming
+- generic first, to be specified later, then instantiated when needed for specific types of provided parameters
+- children have more details than the parents, right side always has more details
+
+## can not done with generics
+- calling a constructor
+- can not calling instanceof
+- can not create an array of static types
+- use primitives type as generic parameters
+
+## static
+- when we specify static, we say that there is one particular place in memory assigned to this particular object
+- with generic, we are saying that we do not know the type of objects, we decide later
+
+## bounds
+- generics were be treated as objects, and thus do not have many methods available
+- bounds operatior: "?" - which is a generic type can be used to specify bound for the generic
+
+## example
+- List<? extends Number> list = new ArrayList<Integer>();
 
 # Lambda
