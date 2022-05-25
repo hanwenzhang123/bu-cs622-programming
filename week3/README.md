@@ -109,7 +109,9 @@ title: 052422-note
 # Generics
 ## primitives
 - primitives are faster, we can store a reasonable amount of them in memory
-- there are 7 primitives
+- each primitive has a corresponding wrapper class and auto boxing automatically converts the primitive into its wrapper class (generic type) and vice versa
+
+## 7 primitives
 1. boolean -> Boolean
 2. byte -> Byte
 3. int -> Integer
@@ -119,18 +121,21 @@ title: 052422-note
 7. float -> Float
 
 ## <> diamond operator
-- after java 5, we use this operator for type casting
-- autoboxing, we can convert them to the desired data type
+- after java 5, we use diamond operator to specify what is the type of the object is going to be in that collection for type casting
+- now with autoboxing, we can convert them to the desired data type
 
 ```js
+// both are the same, accepting only string
 List<String> sampleArray = new ArrayList<String>(); 
 List<String> sampleArray = new ArrayList<>(); 
 ```
-- both above are the same, accepting the same string, only string
 
 ## generic programming
 - generic first, to be specified later, then instantiated when needed for specific types of provided parameters
 - children have more details than the parents, right side always has more details
+
+## why generic programming
+- there is an object but do not know the type ofobject, but we are going to specify the type of the object later in the code
 
 ## naming conventions
 - E for an element
