@@ -2,6 +2,10 @@
 title: 051022-note
 ---
 
+## Table of Contents
+- [OOP](#OOP)
+- [OOP Concepts](#OOPConcepts)
+
 ## Q: What do we need when we plan to create something complicated?
 - A: start with a design first, then create different components and put it together
 - A: First, we would identify the product or the information of the project that we're going to build in, and then gather some information about it
