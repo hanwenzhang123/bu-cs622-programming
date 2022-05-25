@@ -2,7 +2,7 @@
 title: 051022-note
 ---
 
-## Table of Contents
+# Table of Contents
 - [OOP](#OOP)
 - [OOP Concepts](#OOP-Concepts)
 
