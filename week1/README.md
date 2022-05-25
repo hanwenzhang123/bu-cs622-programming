@@ -4,7 +4,7 @@ title: 051022-note
 
 ## Table of Contents
 - [OOP](#OOP)
-- [OOP Concepts](#OOPConcepts)
+- [OOP Concepts](#OOP-Concepts)
 
 ## Q: What do we need when we plan to create something complicated?
 - A: start with a design first, then create different components and put it together
