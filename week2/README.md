@@ -2,7 +2,13 @@
 title: 051722-note
 ---
 
-# Exception & Errors
+# Table of Contents
+- [Exception](#Exception)
+- [Files](#Files)
+- [Regular Expression](#Regular-Expression)
+
+# Exception
+## Exception & Errors
 Everything in java is the extension of the object class
 
 ## run time error
@@ -52,7 +58,8 @@ catch (Exception ex){
 - Exception itself is a super class, it will run, but better to be specific, like IOException
 
 
-# Files and I/O
+# Files
+## Files and I/O
 - what data onto the memory
 - what data onto the disk
 
