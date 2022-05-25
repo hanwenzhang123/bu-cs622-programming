@@ -2,6 +2,12 @@
 title: 052422-note
 ---
 
+# Table of Contents
+- [Collections](#Collections)
+- [Generics](#Generics)
+- [Lambda](#Lambda)
+
+
 # Collections
 ## Why using collections?
 - CPU Cache -> fastest state, size is limited, price is expensive, java can not write to cpu cache directly, but C++ would
@@ -98,6 +104,7 @@ title: 052422-note
 ## performance
 - array is faster than vector and map
 - arrayDeque -> arrayList -> vector -> HashMap -> TreeMap
+
 
 # Generics
 ## primitives
