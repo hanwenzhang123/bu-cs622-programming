@@ -91,7 +91,7 @@ title: 052422-note
 - TreeMap() - very fast but not as fast as HashMap. keys are always sorted => O(n log n)
 
 ## Map Example 
-- `Map<String, String> map = new TreeMap<>();` => orderedok, 
+- `Map<String, String> map = new TreeMap<>();` => ordered 
 - `Map<String, String> map = new HashMap<>();` => not ordered
 - `map.put("koala", "bamboo");`
 
@@ -125,6 +125,14 @@ List<String> sampleArray = new ArrayList<>();
 - generic first, to be specified later, then instantiated when needed for specific types of provided parameters
 - children have more details than the parents, right side always has more details
 
+## naming conventions
+- E for an element
+- K for a map key
+- V for a map value
+- N for a number
+- T for a generic data type
+- S, U, V and so forth, for multiple genric types
+
 ## can not done with generics
 - calling a constructor
 - can not calling instanceof
@@ -140,6 +148,16 @@ List<String> sampleArray = new ArrayList<>();
 - bounds operatior: "?" - which is a generic type can be used to specify bound for the generic
 
 ## example
-- List<? extends Number> list = new ArrayList<Integer>();
+- `List<? extends Number> list = new ArrayList<Integer>();`
+
+## Why Generic?
+- because we have an object that we would like to specify the type of the objects later
+
+## Why Wild Card?
+- because generics provides too much freedom, you would like to make a bit more concentrate and apply bit more constraints on the chaos u
+
 
 # Lambda
+
+
+
