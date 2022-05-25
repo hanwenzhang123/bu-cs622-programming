@@ -30,10 +30,52 @@ title: 052422-note
 - stack: first in last out
 
 ## implementation classes
-- hashset, linked hashset, treeset (hash translate to some address inside the memory)
+- hashset, linked hashset, treeset
 - arraylist, linked list, stack, vector
 - priority queue, array deque, deque/linkedlist
 - hash map, hash linked map, hash table, tree map
+
+## hash
+- we store our objects into collections, and those objects get applied to mathematical functions that applied to that object, and then an integer number is returned to it
+- hash as mathematical information, we give some objects to the hash, hash translates to some address inside the memory => access information very rapidly
+
+## tree
+- store the information in the tree is very fast
+- the location where we put the information in the tree in every step we can also get rid of lots of information
+- we order the information and put them in tree instead of comparing data 
+
+## common collection methods
+- boolean add(E element)
+- boolean remove(Object object)
+- boolean isEmpty()
+- int size()  // return integer
+- void clear()
+- boolean contains(Object object)   //whether exists
+
+## list operations 
+- list => we can access to the position of the element using index (offset)
+- List objAL = new ArrayList();   => fastest java colelction
+- List objLL = new LinkedList();
+- List objV = new Vector(); => outdated, new version is ArrayList
+- List objS = new Stack();  => outdated, new version is ArrayDeque
+
+## list operations
+- search (int indexOf(Object o), int lastIndexOf(Object o))
+- iteration (simply a traditional for loop, or iterator object)
+- sub range (List subList(int fromIndex, int toIndex))
+
+## LinkedList
+- both queue and list in java
+- advantages: we can read/add/remove from both beginning or end of the linkedlist
+
+## iterator
+- Iterator iter = listName.iterator()
+- iter.hasNext()  // if it has the next line
+- iter.next()   //get no pointer exception when gets to the last 
+
+
+
+
 
 # Generics
 
