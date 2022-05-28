@@ -2,8 +2,9 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Main {
-    private static HashMap<String, String> searchHistory = new HashMap<String, String>();
-    private static HashMap<String, Integer> searchFrequency = new HashMap<String, Integer>();
+    public static HashMap<String, String> searchHistory = new HashMap<String, String>();    //we use timestamps as the key, search items as the value
+    public static HashMap<String, Integer> searchFrequency = new HashMap<String, Integer>();    //key as the search item, integer value as the frequency
+    public static HashSet<String> searchedItems = new HashSet<String>();    //set does not allow duplicate, we track which items have been searched here
 
     public static void main(String[] args) {
         String file1 = "dataset/data1.json";
@@ -19,9 +20,15 @@ public class Main {
 //  ------------------------ Assignment 3 ------------------------
         System.out.println("------Search History with Time Stamp------");
 
+        System.out.println(searchHistory);
 
         System.out.println("------Search Term and Frequency------");
 
+        System.out.println(searchFrequency);
+
+        System.out.println("------All Keywords Have been Searched------");
+        searchedItems.add("Bob");
+        System.out.println(searchedItems);
 
 //  ------------------------ Assignment 2 ------------------------
 //        System.out.println("------Merge Content------");

@@ -1,5 +1,30 @@
 # BU CS 622 Assignment 3
 
+## Requirements
+- This project is built on top of my previous assignment, but has included a memory that keeps the track of what has been searched, in which it stores inputs which we give to the search.
+- Search criteria and timestamp will be stored in a collection, and a method to call and print the number of search terms, their timestamps, and frequency.
+
+## Collection Variables
+In the main file, I have created these collections as shown below: 
+```java
+public static LinkedHashMap<String, String> searchHistory = new LinkedHashMap<>(); 
+public static HashMap<String, Integer> searchFrequency = new HashMap<>();   
+public static HashSet<String> searchedItems = new HashSet<>();
+```
+- `searchHistory`: I used the LinkedHashMap to store key value pairs and maintain the insertion orders - timestamps as the key, search items as the value; each search will add to the map with when it has been searched and the keyword of this search
+- `searchFrequency`: I used the HashMap to track the frequency of searched keywords in which key as the search item, and integer value as the frequency; when search occur, we track if the key exist, if yes, then value plus 1, if not, then create a new key with value 1
+- `searchedItems`: I used the HashSet collection to store all searched items, since set does not allow duplicate, fast, unordered and un-indexed which are not needed, we just track which items have been searched here
+
+## Implementation Comparison in Map
+- `HashMap`: does not maintain insertion order, O(1)
+- `LinkedHashMap`: maintain insertion order, O(1)
+- `TreeMap`: sorted ascending order based on keys, not elements, O(log N)
+
+> Key in all Map is unique. \
+> Add duplicate key, then it will be overwritten.
+
+## Files
+
 I chose to use JSON file for this assignment, and used an external library called `org.json`
 
 [The Library Downloaded here](https://mvnrepository.com/artifact/org.json/json)\
