@@ -25,6 +25,8 @@ public static ArrayList<String> files = new ArrayList<>();
 > Key in all Map is unique. \
 > Add duplicate key, then it will be overwritten.
 
+![data-structure](data-structure.png)
+
 ## Files
 
 I chose to use JSON file for this assignment, and used an external library called `org.json`
