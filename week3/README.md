@@ -54,9 +54,12 @@ title: 052422-note
 - sorted
 
 ## implementation classes comparison in Map
-- `HashMap`: does not maintain insertion order
-- `LinkedHashMap`: maintain insertion order
-- `TreeMap`: maintain sorted order of keys but not elements
+- `HashMap`: does not maintain insertion order, O(1)
+- `LinkedHashMap`: maintain insertion order, O(1)
+- `TreeMap`: sorted ascending order based on keys, not elements, O(log N)
+
+> Key in all Map is unique. \
+> Add duplicate key, then it will be overwritten.
 
 ## iterator
 - Iterator iter = listName.iterator()
