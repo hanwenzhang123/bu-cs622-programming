@@ -76,7 +76,7 @@ title: 052422-note
 
 ## list operations 
 - list => we can access to the position of the element using index (offset)
-- List objAL = new ArrayList();   => fastest java colelction
+- List objAL = new ArrayList();   => fastest java collection
 - List objLL = new LinkedList();
 - List objV = new Vector(); => outdated, new version is ArrayList
 - List objS = new Stack();  => outdated, new version is ArrayDeque
