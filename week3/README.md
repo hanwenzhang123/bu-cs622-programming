@@ -53,6 +53,11 @@ title: 052422-note
 - store the information in the tree is very fast
 - sorted
 
+## implementation classes comparison in Map
+- `HashMap`: does not maintain insertion order
+- `LinkedHashMap`: maintain insertion order
+- `TreeMap`: maintain sorted order of keys but not elements
+
 ## iterator
 - Iterator iter = listName.iterator()
 - iter.hasNext()  // if it has the next line
@@ -86,7 +91,7 @@ title: 052422-note
 - growable array that allows us to add or remove an element from both sides.
 - ArrayDeque implementation can be used as a Stack (Last-In-First-Out) or a Queue(First-In-First-Out)
 
-## set
+## Set
 - remove duplicate object entries, very fast
 - unordered and unindexed collection having no duplicate elements
 - `set.iterator().next();` - will return the first element
