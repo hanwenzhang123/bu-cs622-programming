@@ -10,10 +10,12 @@ In the main file, I have created these collections as shown below:
 public static LinkedHashMap<String, String> searchHistory = new LinkedHashMap<>(); 
 public static HashMap<String, Integer> searchFrequency = new HashMap<>();   
 public static HashSet<String> searchedItems = new HashSet<>();
+public static ArrayList<String> files = new ArrayList<>();
 ```
 - `searchHistory`: I used the LinkedHashMap to store key value pairs and maintain the insertion orders - timestamps as the key, search items as the value; each search will add to the map with when it has been searched and the keyword of this search
 - `searchFrequency`: I used the HashMap to track the frequency of searched keywords in which key as the search item, and integer value as the frequency; when search occur, we track if the key exist, if yes, then value plus 1, if not, then create a new key with value 1
 - `searchedItems`: I used the HashSet collection to store all searched items, since set does not allow duplicate, fast, unordered and un-indexed which are not needed, we just track which items have been searched here
+- `files`: I used ArrayList to collect all the path to current available json file, as we can access to the position of the element using index, so we can iterate through in SearchKeyword file, and check where this keyword exists for each file and get the json data returned
 
 ## Implementation Comparison in Map
 - `HashMap`: does not maintain insertion order, O(1)

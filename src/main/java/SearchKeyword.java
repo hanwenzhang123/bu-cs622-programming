@@ -5,6 +5,7 @@ import org.json.simple.parser.JSONParser;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,6 +22,37 @@ public class SearchKeyword {
                 JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(args[i]));
 
                 SearchAndPrintByDefaultKeyword(keyword, key1, key2, jsonArray);
+            }
+        }
+        catch(FileNotFoundException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        catch(IOException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        finally {
+            System.out.println("Finally!!! Search for a given keyword done!!!");
+        }
+    }
+
+    public static void main(ArrayList<String> args, String customKeyword) {     //overloading, pass ArrayList
+        try{
+            String key1 = "funds_raised_percent";
+            String key2 = "close_date";
+
+            for (int i = 0; i < args.size(); i++) {     //using size() to count how many items in the array list
+                JSONParser parser = new JSONParser();
+                JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(args.get(i)));    //using get to track the index
+
+                if(customKeyword != null) {
+                    SearchAndPrintByCustomKeyword(customKeyword, key1, key2, jsonArray);
+                }
             }
         }
         catch(FileNotFoundException e){
