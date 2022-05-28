@@ -48,15 +48,10 @@ title: 052422-note
 - not sorted
 
 ## tree
-- the location where we put the information in the tree in every step we can also get rid of lots of information
+- the location where we put the information in the tree in every step, we can also get rid of lots of information
 - we order the information and put them in tree instead of comparing data 
 - store the information in the tree is very fast
 - sorted
-
-## set
-- remove duplicate object entries, very fast
-- unordered and unindexed collection having no duplicate elements
-- `set.iterator().next();` - will return the first element
 
 ## iterator
 - Iterator iter = listName.iterator()
@@ -90,6 +85,11 @@ title: 052422-note
 ## ArrayDeque
 - growable array that allows us to add or remove an element from both sides.
 - ArrayDeque implementation can be used as a Stack (Last-In-First-Out) or a Queue(First-In-First-Out)
+
+## set
+- remove duplicate object entries, very fast
+- unordered and unindexed collection having no duplicate elements
+- `set.iterator().next();` - will return the first element
 
 ## Map 
 - key value style of data
