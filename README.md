@@ -1,4 +1,4 @@
-# BU CS 622 Assignment 2
+# BU CS 622 Assignment 3
 
 I chose to use JSON file for this assignment, and used an external library called `org.json`
 
