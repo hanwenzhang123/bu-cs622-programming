@@ -15,7 +15,7 @@ public class Main {
         files.add(file2);
         files.add(file3);
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);   //Using scanner
         boolean search = true;
         String file;
         String keyword;
@@ -28,7 +28,7 @@ public class Main {
             System.out.println("Enter the KEYWORD that you would like to search: ");
             keyword = scanner.nextLine();
 
-            if (file.equalsIgnoreCase("all")) {
+            if (file.equalsIgnoreCase("all")) {     //call the function based on the value of the file variable
                 SearchKeyword.main(files, keyword);
             } else if (file.equalsIgnoreCase("file1")) {
                 SearchKeyword.searchKeywordByFile(file1, keyword);
@@ -37,7 +37,7 @@ public class Main {
             } else if (file.equalsIgnoreCase("file3")) {
                 SearchKeyword.searchKeywordByFile(file3, keyword);
             } else {
-                System.out.println("The file name you have enter is not exist!!!");
+                System.out.println("The file name you have enter is not exist!!!"); //validation
             }
 
             //  ------------------------ Assignment 3 ------------------------
@@ -45,18 +45,19 @@ public class Main {
             System.out.println("------Search History with Time Stamp------");
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date now = new Date();
-            String formattedTime = format.format(now);
+            String formattedTime = format.format(now);      //formatted current date and time
             String timeStamp = "\nTimestamp: " + formattedTime + " ";
             String keywordInfo = " Keyword Searched: " + keyword;
-            searchHistory.put(timeStamp, keywordInfo);
+            searchHistory.put(timeStamp, keywordInfo);      //add the key value pair to the map searchHistory
 
             System.out.println(searchHistory);
 
             System.out.println("------Search Term and Frequency------");
 
+            // we track if the key exist, if yes, then value plus 1, if not, then create a new key with value 1
             if (searchFrequency.containsKey(keyword)) {
                 int frequency = searchFrequency.get(keyword);
-                searchFrequency.put(keyword, frequency + 1);
+                searchFrequency.put(keyword, frequency + 1);     //add the key value pair to the map searchFrequency
             } else {
                 searchFrequency.put(keyword, 1);
             }
@@ -64,7 +65,7 @@ public class Main {
             System.out.println(searchFrequency);
 
             System.out.println("------All Keywords Have been Searched------");
-            searchedItems.add(keyword);
+            searchedItems.add(keyword);     //searchedItems is a set, only store unique values
             System.out.println(searchedItems);
 
             System.out.println("\n-------------------");
@@ -74,7 +75,7 @@ public class Main {
             if (answer.equalsIgnoreCase("Y")) {
                 System.out.println("\n-------------------");
                 continue;
-            } else if (answer.equalsIgnoreCase("N")) {
+            } else if (answer.equalsIgnoreCase("N")) {  //terminal the scanner if user entered N
                 search = false;
                 scanner.close();
                 System.out.println("Thank you for participating!");
