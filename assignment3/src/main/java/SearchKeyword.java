@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,14 +47,17 @@ public class SearchKeyword {
             String key1 = "funds_raised_percent";
             String key2 = "close_date";
 
-            for (int i = 0; i < args.size(); i++) {     //using size() to count how many items in the array list
+            Iterator<String> iterator = args.iterator();    //iterator used for arraylist, iterate over the list
+            while (iterator.hasNext()) {        //while the iterator has next item
+                String file = iterator.next();
                 JSONParser parser = new JSONParser();
-                JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(args.get(i)));    //using get to track the index
+                JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(file));
 
                 if(customKeyword != null) {
                     SearchAndPrintByCustomKeyword(customKeyword, key1, key2, jsonArray);
                 }
             }
+
         }
         catch(FileNotFoundException e){
             System.out.println(e.getMessage());

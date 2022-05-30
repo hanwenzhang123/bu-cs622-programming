@@ -25,6 +25,23 @@ public static ArrayList<String> files = new ArrayList<>();
 > Key in all Map is unique. \
 > Add duplicate key, then it will be overwritten.
 
+## Iterator
+I also used iterator for the ArrayList in the `SearchKeyword`file.
+
+- iterator used for arraylist, iterate over the list while the iterator has next item
+```java
+Iterator<String> iterator = args.iterator();
+while (iterator.hasNext()) {
+    String file = iterator.next();
+    JSONParser parser = new JSONParser();
+    JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(file)); 
+
+    if(customKeyword != null) {
+        SearchAndPrintByCustomKeyword(customKeyword, key1, key2, jsonArray);
+    }
+}
+```
+
 ![data-structure](data-structure.png)
 
 ## Files
