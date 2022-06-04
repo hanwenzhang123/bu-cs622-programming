@@ -178,6 +178,16 @@ List<String> sampleArray = new ArrayList<>();
 
 
 # Lambda
+- in Java, everything we write belongs to the class
+- lambda, introduced in Java 8, does not need to belong to any class, jump outside object oriented programming => functional programming
+- `(n) -> System.out.printLn(n)` - parameter name - arrow - body
 
+## functional interface
+- an interface that contains only ONE abstract method, they can have only ONE functionality exhibit
+- `@FunctionalInterface` - no needs @symbol denotes annotation enables developer to know on which interface they can apply lambda, you can have or not have
+
+## anonymous method
+- a function without a name
+- arguments -> body of lambda expressionç√
 
 
