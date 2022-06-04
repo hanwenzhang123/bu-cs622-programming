@@ -3,24 +3,11 @@ title: 053122-note
 ---
 
 # Table of Contents
-- [Lambda](#Lambda)
 - [Memory](#Memory)
 - [Algorithm Complexity](#Algorithm-Complexity)
 - [Search Improvement](#Search-Improvement)
 - [Bloom Filter](#Bloom-Filter)
 
-# Lambda
-- in Java, everything we write belongs to the class
-- lambda, introduced in Java 8, does not need to belong to any class, jump outside object oriented programming => functional programming
-- `(n) -> System.out.printLn(n)` - parameter name - arrow - body
-
-## functional interface
-- an interface that contains only ONE abstract method, they can have only ONE functionality exhibit
-- `@FunctionalInterface` - no needs @symbol denotes annotation enables developer to know on which interface they can apply lambda, you can have or not have
-
-## anonymous method
-- a function without a name
-- arguments -> body of lambda expressionç√
 
 # Memory
 
@@ -43,8 +30,10 @@ title: 053122-note
 - O(n log n) - logarithmic time
 - O(n^2) - n squared time
 
+![Big O Notation]( Big-O.png "Big O Notation" )
 
 
+# Search-Improvement
 
-
+# Bloom-Filter
 
