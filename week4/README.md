@@ -129,9 +129,8 @@ title: 053122-note
 - a technique for quickly estimating how similar two sets are.
 
 # Bloom Filter
-- efficient data structure if a particular data existed in a set or not
-- its output tells the target data object does not exist in the st or might exist
-- memory efficient and faster
+- probabilistic data structure, if a particular data existed in a set or not, its output tells the target data object does not exist in the st or might exist
+- memory efficient and running time faster
 - base structure is a bit vector
 
 ## bit vector
