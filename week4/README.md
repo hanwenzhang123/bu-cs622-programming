@@ -5,23 +5,58 @@ title: 053122-note
 # Table of Contents
 - [Memory](#Memory)
 - [Algorithm Complexity](#Algorithm-Complexity)
-- [Search Improvement](#Search-Improvement)
+- [Search Improvement Methods](#Search-Improvement-Methods)
 - [Bloom Filter](#Bloom-Filter)
-
 
 # Memory
 
 ## Memory Management
-- Java has automatic memory management, it automatically performs garbage collection
-- automatically clean things up in your memory
+- Java has automatic memory management, it automatically performs garbage collection (new version Java)
+- garbage collection automatically cleans things up in your memory
+- garbage means class objects which are instantiated but not in use anymore, they occupy memory, and compiler should remove them
 
 ## Memory Structure
-- Java divides memory into two parts, stack and heap
-- Stack: stores Java Primitive types, and hold a reference to heap objects
+- Java divides memory into two parts, `stack` and `heap`
+- `Stack`: stores primitive types, and hold a reference to heap objects
+- `Heap`: actual object will be stored
+
+![Stack Heap]( Stack-Heap.png "Stack-Heap" )
 
 ## Stack vs Heap
-- Stack size is flexible, memory allocation is automatic and has size limits, if stack is full, stack overflow error
-- Heap is not managed automatically, we need to allocate memory by code
+- `Stack` size is flexible, memory allocation is automatic, has size limits accoridng to OS that hosts JVM, variables remain as long as function is runnning
+- if stack is full, `StackOverFlowError`
+- `Heap` is not managed automatically, we need to free allocated memory by code, prone to memory leak problem, no size limit in heap
+- if heap is full, `OutOfMemoryError`
+
+## What to do if StackOverFlowError?
+- restart the JVM
+
+## Why using primitives
+- compare to stack, objects in heap are much slower to access, slower to write to the memory on heap
+- because primitivies reside on the stack and stack is significantly faster than the heap.
+
+## Heap in memory
+- we have only one heap memory for each JVM process
+- heap is a shared part of memory regardless how many threads are running inside the java
+- `Xms<size>` - initial java heap size
+- `Xmx<size>` - maximum java heap size
+- `Xss<size>` - set java thread stack size
+- `java -Xmx6g myApplication`
+  
+## Memory Reference Type in Java
+- Strong: When there is a direct reference to an object and it is not eligible for garbage collection. `Test obj = new Test()`
+- Soft: When an object is free for garbage collection, but it is not yet garbage collected, until JVM is running low on memory and looking for objects to remove. `g = null;  // Marked for gc, but JVM might not do it immediately.`
+- Weak: When an object has neither strong nor soft reference, it is a weak reference. Weak references should be explicitly specified while referencing them.
+- Phantom: Objects are eligible for GC, but JVM puts them in a queue called “ReferenceQueue”. We don’t know a phantom referenced object is dead or alive.
+
+## Garbage Collection
+- When the Heap becomes full, garbage is collected. 
+- Stack is last in first out, so there is no need to garbage collect. 
+- => Stack memory is collected automatically when the execution path reaches the end of the scope
+
+## gc process
+- obj, var, func allocation -> obj, var, func read/write location -> process is continued until the program ends -> memory is released when program ends
+- release the memory if a location is not reachable
 
 # Algorithm Complexity
 ## Big O Notation
@@ -33,7 +68,52 @@ title: 053122-note
 ![Big O Notation]( Big-O.png "Big O Notation" )
 
 
-# Search-Improvement
+# Search Improvement Methods
+- we work with a lot of data, we need to know how to search data in an efficient way
 
-# Bloom-Filter
+## Hash Tables
+- key value storage converting information into address in the memory
+- quickly lookup, enables the system to rapidly access the data
+
+#### BitCask
+- hash index, stored inside memory, with one single disk seek
+- useful when we have lots of update in our key-value pair
+
+## Tree Structures
+- a sub type a graph data structure, which has a root and child node (but without cycle)
+- reduce the search space in brute force (like binary tree, which one is larger smaller)
+
+#### Scanning the tree
+- Breadth First Search (left to right)
+- Depth First Search (deep then next)
+
+#### Binary Tree
+- each node has only 2 children
+- useful when data are havig a sorted order inside the tree
+- check whether the new data object is smaller or larger than the root.
+- If it is smaller then, it goes and search the left side of the tree, otherwise, if it is greater it goes and search the right side of the tree.
+
+#### Operation
+- search - efficent - O(log n)
+- insertion - not efficient O(2n), when table is not empty - O(n^2)
+
+#### 2-3 search tree
+- hold more than one key
+
+#### B-Tree
+- balancing faction tree, leaves must be the same depth
+- sequence, creating index in database
+
+#### Trie, Prefix, Radius
+- trie nodes are assumed to be ordered from the root, and root node is always empty
+- trie is useful for auto-complete
+
+
+## Bit Manipulations & Compression
+
+## Sliding Window
+
+## Minhashing
+
+# Bloom Filter
 
