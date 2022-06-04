@@ -119,12 +119,25 @@ title: 053122-note
 - a technique of compressing data to reduce its size without losing any of the details.
 
 ## Sliding Window
-- voice command, smart speaker, voice feature
+- useful for voice command, smart speaker, voice feature
 
 ![Sliding Window]( Sliding-Window.png "Sliding Window" )
-![Sliding Window][Sliding-Window.png]
 
-## Minhashing
+## MinHashing
+- popular for information retrieval
+- easier to compare, randomly permutes rows and have a matrix
+- a technique for quickly estimating how similar two sets are.
 
 # Bloom Filter
+- efficient data structure if a particular data existed in a set or not
+- its output tells the target data object does not exist in the st or might exist
+- memory efficient and faster
+- base structure is a bit vector
+
+## bit vector
+- When we add a data into the bit vector, it transfers the original data from a hash function into a bit vector and set some bits in its bit array. 
+- Then, later we can check whether the data existed inside Bloom filter, by checking the bits which are set to 1.
+
+## Objective
+- Searhing the database is expensive, and we try to avoid it; instead, we search the bit vector
 
