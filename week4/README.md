@@ -124,9 +124,8 @@ title: 053122-note
 ![Sliding Window]( Sliding-Window.png "Sliding Window" )
 
 ## MinHashing
-- popular for information retrieval
+- popular for information retrieval, a technique for quickly estimating how similar two sets are (estimate set similarity)
 - easier to compare, randomly permutes rows and have a matrix
-- a technique for quickly estimating how similar two sets are.
 
 # Bloom Filter
 - probabilistic data structure, if a particular data existed in a set or not, its output tells the target data object does not exist in the st or might exist
