@@ -98,20 +98,31 @@ title: 053122-note
 - insertion - not efficient O(2n), when table is not empty - O(n^2)
 
 #### 2-3 search tree
-- hold more than one key
+- hold more than one key, keys are ordered
 
 #### B-Tree
-- balancing faction tree, leaves must be the same depth
-- sequence, creating index in database
+- balancing factor tree, a type of 2-3 search tree, which node can have more than 2 child, leaves must be the same depth
+- useful for sequence, creating index in database
 
 #### Trie, Prefix, Radius
 - trie nodes are assumed to be ordered from the root, and root node is always empty
 - trie is useful for auto-complete
 
-
 ## Bit Manipulations & Compression
+- compression makes search faster, make data into another format which is smaller
+- process done on bit level, into binary format
+
+#### Bitmap indes
+- useful for data with low cardinality (diversity of data is limited, like male or female)
+
+#### Huffman Encoding
+- a technique of compressing data to reduce its size without losing any of the details.
 
 ## Sliding Window
+- voice command, smart speaker, voice feature
+
+![Sliding Window]( Sliding-Window.png "Sliding Window" )
+![Sliding Window][Sliding-Window.png]
 
 ## Minhashing
 
