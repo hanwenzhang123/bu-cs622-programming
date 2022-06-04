@@ -183,11 +183,26 @@ List<String> sampleArray = new ArrayList<>();
 - `(n) -> System.out.printLn(n)` - parameter name - arrow - body
 
 ## functional interface
-- an interface that contains only ONE abstract method, they can have only ONE functionality exhibit
+- a functional interface is an interface that contains only ONE abstract method, they can have only ONE functionality exhibit
 - `@FunctionalInterface` - no needs @symbol denotes annotation enables developer to know on which interface they can apply lambda, you can have or not have
 
 ## anonymous method
 - a function without a name
-- arguments -> body of lambda expressionç√
+- arguments -> body of lambda expression
 
+## FuntionalInterface
+```java
+public interface Run extends Sprint {}    //extends sprint interface
+
+public interface SpirntFaster extends Sprint {
+  public void sprint(Animal animal);
+}
+
+public interface Skip extends Sprint {
+  public default int getHopCount (Kangaroo kangaroo) {    //ok, but not recommended
+    return 10;    
+  }
+  public static void skip(int speed) {}
+}
+```
 
