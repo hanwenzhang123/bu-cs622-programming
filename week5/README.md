@@ -80,10 +80,67 @@ public class ThreadExample implements Runnable {
 - two threads, both are calling same method
 
 ## Structured Locks
+- synchronize: imposes a lock on the increment while a thread is working with it.
+
+```java
+synchronized void increment(val){ 
+ val = val+1
+}
+```
+
+#### Mutually Exclusive - Only 1 thread can use it
+- A content of the synchronized method is called **mutually exclusive**, because one thread at a time can work with it.
+- As soon as the thread is starting to work with this method, there will be lock on this method and no other method can use it.
+- When a thread is done, the lock will be released and other threads can use it.
+- disadvantage: enforcing it to wait, everything will be slowing down when we use `synchronized`, you have to wait
+
+#### Atomic - only lock to one variable
+- a property of operation, which disables any other thread interface on that operation
+- instead of synchronizing a method of a block of code which is making slow, just synchronize one, put a lock on one particular variable
+
+#### Synchronization Disadvantage
+- The objective of multi-threat programming is doing task multiple tasks in parallel. By enforcing a lock we disable the multi tasking features, which might increase response time.
+- Synchronization protects data integrity, but its costs will be on response time.
+- Being able to identify the performance bottleneck of a system, especially in multithread environment is very valuable capability.
 
 
 ## Unstructured Locks
+- Locks are nested inside each other
 
+#### How to Resolve Nested Locks
+1. Using ReentrantLock (Interface Lock or Try Lock) - ReentrantLock will hold the lock until the thread is done.
+2. Using Read/Write Lock - Read/Write Lock separates read and write operation and implement different locks for them
 
+#### ReentrantLock
+- Lock implementations provide more extensive locking operations than can be obtained using synchronized methods and statements.
 
+```java
+Lock lock = new ...;
+ lock.lock();
+ try{
+  // use the resource protected by this lock
+ }
+ finally {
+  lock.unlock();
+ }
+```
+
+#### Read/Write Lock
+- Read Lock: It will be unlocked if no thread is reading or writing.
+- Write Lock: It will be unlocked if no thread is writing and no thread has requested write access.
+
+Note: 
+- Read occurs more frequently than the Write.
+- More than one thread can hold a Read Lock
+- Only one thread can holds the Write Lock
+
+#### Semantic Errors in Concurrency
+- DeadLock: 2 threads, each thread implements a lock to each other
+- LiveLock: not locked, but never ended
+- Starvation: when have too many small threads, some might never get called, the ones that we are not called, called starved.
+
+#### ExecutorService & Thread Pools
+- try to do everything in the same class
+
+1. Executor: It is an interface, with an execute() method to launch a task specified by a Runnable object.
 
