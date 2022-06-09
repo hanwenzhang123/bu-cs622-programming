@@ -140,7 +140,18 @@ Note:
 - Starvation: when have too many small threads, some might never get called, the ones that we are not called, called starved.
 
 #### ExecutorService & Thread Pools
-- try to do everything in the same class
-
+- try to do everything in the same class by introducing the Executor Framework
 1. Executor: It is an interface, with an execute() method to launch a task specified by a Runnable object.
+2. ExecutorService: It implements the Executor interface and adds functionality to manage the life cycle of the task.
+3. ScheduledExecutorService: A sub-interface of ExecutorService, but it has the functionality to the execution of tasks as well.
 
+#### Executor LifeCycle
+Create New Thread Executor -> Active (Accepts New Tasks & Executes Tasks) -> Shutting Down -> All Tasks Finished (Rejects New Tasks & Executes Tasks) -> Shutdown
+
+#### Execute vs Submit
+- The execute() - does not return anything, it takes a Runnable object and completes the task. It doesn’t return anything about the success or failure of task completion (fire-and-forget).
+- The submit() - returns something, it returns the future object, which is the result of thread execution. This object can assist us identifying the result of thread execution.
+
+#### Future Object
+- The Future class includes methods that are useful in determining the state of a task.
+  
