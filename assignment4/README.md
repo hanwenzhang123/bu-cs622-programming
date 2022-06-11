@@ -68,9 +68,21 @@ private static Thread thread = new Thread(example);
 thread.start(); //start(), run the thread, will start a new thread and the JVM assigns it to a CPU core.
 ```
 
-
 ## Report
-> - Report the differences between single thread and multithread run. 
-> - Having no significant differences is not a problem.
+> Report the differences between single thread and multithread run. Having no significant differences is not a problem.
 
-Alive refers to a thread that has begun but not been terminated yet.
+![single-multi](single-multi.png)
+
+The picture above shows that the message for the `single-threaded` would be printout when the program finishes running. And the message for the `multi-threaded` would be printout while the program is still running since the execution of the programs is running concurrently.
+
+![single-multiple-2](single-multiple-2.png)
+
+#### Waiting threads to finish completely
+
+- Use `join()` which allows the calling thread to wait until another thread gets its task done
+- We can also use `isAlive()` to refer a thread that has begun but not been terminated yet
+
+Here we added a try catch block with the join method that makes sure all the threads are done, then we get the duration for the operation from start to finish.
+
+### Finding
+Our program is small, so the difference is not obvious. I have run several times, the result is pretty similar, just the multi-threaded concurrency seems to be a bit faster.
