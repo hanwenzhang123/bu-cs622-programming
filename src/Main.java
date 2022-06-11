@@ -1,26 +1,48 @@
 import java.util.*;
 
 public class Main {
-    final static String[] genomeCharacter = {"A", "T", "G", "C"};   //use final since we are not changing this array => genome sequence is a character string that include A,T,G,C
-    public static ArrayList<String> randomGenomeSequence = new ArrayList<>();
-
+    private static RandomGenome genome = new RandomGenome();
+    private static Thread thread1 = new Thread(genome);
+    private static Thread thread2 = new Thread(genome);
+    private static Thread thread3 = new Thread(genome);
+    private static Thread thread4 = new Thread(genome);
+    private static Thread thread5 = new Thread(genome);
     public static void main(String[] args) {
-        Random random = new Random();   //use random to generate a random integer
+        System.out.println("----------Single-Threaded Example----------");
+        long singleStartTime = System.currentTimeMillis();
+        genome.sequence(100);
+        long singleStopTime = System.currentTimeMillis();
+        long singleDuration = singleStopTime - singleStartTime;
+        System.out.println("Running the program using single threaded method in " + singleDuration + " in milliseconds." );
 
-        while (randomGenomeSequence.size() < 100) {
-            String genome = "";
-            while (genome.length() < 10) {
-                int index = random.nextInt(4);    //generate a random number 0 and 3 => which will be used as the index of our genome array
-                genome = genome.concat(genomeCharacter[index]);
-            }
-            randomGenomeSequence.add(genome);   //add to the ArrayList of each genome with 10 character long
+        System.out.println("\n----------Multi-Threaded Example----------");
+        long multiStartTime = System.currentTimeMillis();
+//        start() runs the thread, will start a new thread and the JVM assigns it to a CPU core.
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
+        thread5.start();
+        long multiStopTime = System.currentTimeMillis();
+        long multiDuration = multiStopTime - multiStartTime;
+        System.out.println("Running the program using multi threaded method in " + multiDuration + " in milliseconds." );
+
+//        join() allows the calling thread to wait until another thread gets its task done => Waiting threads to finish completely
+        try {
+            thread1.join();
+            thread2.join();
+            thread3.join();
+            thread4.join();
+            thread5.join();
+            long multiStopTimeAll = System.currentTimeMillis();   //get the end time when all the threads are finished completely
+            long multiDurationAll = multiStopTimeAll - multiStartTime;
+            System.out.println("**Running the program using multi threaded method in " + multiDurationAll + " in milliseconds.**" );
+        } catch(InterruptedException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
-
-//        //Print out 100 random genome sequence, and each should be 10 character long
-//        for (String eachGenome : randomGenomeSequence) {
-//            System.out.println(eachGenome);
-//        }
-//        System.out.println(randomGenomeSequence.size());    //100
-
     }
 }
