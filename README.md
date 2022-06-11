@@ -52,6 +52,7 @@ public static void sequence(int totalLength){
 - Thread is a class
 - Runnable is an interface
 - The Thread class implements Runnable
+- Threads are random, not guaranteed, a thread is running out of our control after it has been started
 
 #### Boilerplate Code
 ```java
