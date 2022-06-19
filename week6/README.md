@@ -173,8 +173,71 @@ title: 0614-note
 - Load balancing: deciding which consumers to process which message, some consumers that have more resources can process more expensive messages consumer who has less resources can produce
 - Fan-out: 
 
+#### Message Acknowledgement
+The receiver may crash at any time, and thus the message receive process could be unsuccessful.
+Therefore, we need a way to notify the message broker whether the message has been delivered successfully.
+The receiver will send an acknowledgment upon successful message received to the broker. Then the broker realizes that it can remove the message from its message bus.
+Nevertheless, note some messaging protocols such as AMPQ preserving require the order of messages. To resolve this issue, we can use a separate message queue for each consumer.
+
+
+Sending continuously acknowledgement even for small messages is resource consuming, what is your recommendation to mitigate this challenge?
+
+Sending continuously
+ 1. Periodically sending back the acknowledgements and buffer the
+acknowledgement even for small
+message acknowledgments on the receiver.
+messages is resource consuming,
+what is your recommendation to
+2. all messages might not required
+acknowledgement. Therefore, there
+is no need to send for every message
+mitigate this c
+
+
+Fault Tolerance in Stream Processing
+Fault tolerance in stream processing is not as easy as batch jobs.
+We can check point ID or use a time to label stream jobs and their order. When a job failed, the system should revert back to its predefined check point.
+  Reverting back to checkpoints are also implemented in micro batching which is a sort of steam processing (despite the name might be confusing)
+  
+  As with batch processing, we need to discard the partial output of any failed tasks. However, since a stream process is long-running and produces output continuously, we can’t simply discard all output. Instead, a finer-grained recovery mechanism can be used, based on microbatching, checkpointing, transactions, or idempotent writes.
+  
+  
+  
+#### Java Email Service
+1. Download mail-1.4.7.jar and add it into project libraries.
+2. Configure the email service credential.
+3. Create an email session (requires our email user name and password)
+4. Create the “Multipurpose Internet Mail Extensions” (MIME) message
+5. Send the message
+
+
+
 ### Synchronous Messaging
 - near real time
+It is a style of communication between two software component that one component is waiting for another component to respond.
+Email and web messages are two good example of asynchronous messaging.
+
+#### Java Supports for Synchronous Messaging
+Packet based messaging (Use UDP for data transfer) 
+Stream based messaging (Use TCP for data transfer) 
+TCP: Transfer Control Protocol
+UDP: User Datagram Protocol
+
+#### Java Supports for Synchronous Messaging
+TCP connection is session aware, but UDP is session-less. There is no guarantee that UDP packets arrive correctly, also
+there is no guarantee on the delivery of the UDP packet.
+Nevertheless, UDP is much faster than TCP, because there is no overhead. It is useful for communications that don’t require a guarantee for message delivery.
+For example, assume we would like to distribute a video. In this scenario, few frame delays can be tolerated and there is no need to guarantee all message delivery. Therefore, UDP is favored over TCP.
+
+#### Socket Based Communication
+- Client and server program could be located on a separate machines, but they could be also running on the same computer.
+- In our scenario your client and server codes both reside on the same machine (your machine).
+
+#### Socket Based Communication Workflow
+Server:
+ Socket socket = serversocket.accept();
+Client:
+ Socket socket = new Socket(servername, port);
 
 
 #### Message System (web sockets)
