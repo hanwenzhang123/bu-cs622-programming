@@ -233,21 +233,30 @@ title: 0614-note
 
 #### TCP vs UDP
 - UDP is much faster than TCP, because there is no overhead, no matter other party exists or accepts, just throw the message, no guarantees
-- UDP is useful for communications that don’t require a guarantee for message delivery, very good for the video stream
+- UDP is useful for communications that do not require a guarantee for message delivery, very good for the video stream
 
 #### Socket Based Communication
-- Client and server program could be located on a separate machines, but they could be also running on the same computer.
-- In our scenario your client and server codes both reside on the same machine (your machine).
+- socket is something we put on top of the ports, so the ports are collected by sockets, and sockets are establishing the connections from the ports
+- popular in the client and server architecture, they located on seperate machine, but they could be also running on the same computer
 
 #### Socket Based Communication Workflow
-Server:
- Socket socket = serversocket.accept();
-Client:
- Socket socket = new Socket(servername, port);
+- both client and server have sockets, servers open the sockets by using the bite and then listen to the connection from the client, client establishes a connection
+- they do handshake, and make sure you are okay about the communications with each other
+- client write to the server, a server read from the client, server write to the client, client read from the server, and at the end they close the communication
 
+#### Server
+- The first step is to create a server socket.
+- `ServerSocket serversocket = new ServerSocket(9000);`
+- After the successful socket creation, the server should start to wait for a connection.
+- `Socket socket = serversocket.accept();`
+
+#### Client
+- The client should request a server for a connection with server name and port.
+- `Socket socket = new Socket(servername, port);`
 
 #### Message System (web sockets)
 - send over individual packets, try to be near real time and as synchronous as possible
 - set up a connection, if you lose connection at any point, you can not get the message to come across for it due to synchronous
 - ability to replay - if you lose connection and you have some event driven process that requires messages to come back across, but you lost connection and missed that message, you can not get back unless you go back and replay it
 - the process of replaying messages and getting things that are in the queue that is going to be asynchronous because you have to go back and get a specific thing possibly as part of a batch thing but at very least it is not real time
+ 
