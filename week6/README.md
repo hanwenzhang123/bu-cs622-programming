@@ -10,6 +10,8 @@ title: 0614-note
 
 ## Batch Processing
 - there is no software that has no batch processing wherever you are implementing a software.
+- everything is processed in a batch and then send out maybe the next day
+- no synchronous messaging system in batching, batching is as a concept of isolation
 
 #### Stream processing
 - something between real-time and batch processing, usually done in the near real time
@@ -39,4 +41,5 @@ title: 0614-note
 
 ## Synchronous Messaging
 
-
+#### solution to avoid losing message
+- keep it in a buffer - becomes asynchronous operation
