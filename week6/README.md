@@ -136,7 +136,7 @@ title: 0614-note
 ## Messaging
 - we have two types of communications, synchronous and asynchronous between different software components
 - synchronous - communication happening in the real time, like zoom, slack
-- asynchronous - waiting is associated with communication, not in the real time, like emails
+- asynchronous - communication does not take place in real-time, waiting is associated with communication,, like emails, forum comments, corporate intranet
 
 ### Asynchronous Messaging
 - queue up certain amount of response and then send it maybe in a batch
@@ -170,40 +170,39 @@ title: 0614-note
 - batch jobs are usually idempotent operations => multiple executions of a job has the same effect as we performed it once, e.g. sorting static data, storing a key-value data in a set that does not allow duplicate with the same key (value will be overwritten)
 
 #### Multiple Receiver Patterns
-- Load balancing: deciding which consumers to process which message, some consumers that have more resources can process more expensive messages consumer who has less resources can produce
-- Fan-out: 
+- Load balancing: deciding which consumers to process which message, some consumers that have more resources can process more expensive messages, consumer who has less resources can process less expensive messages (based on the resources or the capacity they have)
+- Fan-out: put something in front of the fan, just throw whatever existed to all other systems (just simply put every messages to everybody)
 
 #### Message Acknowledgement
-The receiver may crash at any time, and thus the message receive process could be unsuccessful.
-Therefore, we need a way to notify the message broker whether the message has been delivered successfully.
-The receiver will send an acknowledgment upon successful message received to the broker. Then the broker realizes that it can remove the message from its message bus.
-Nevertheless, note some messaging protocols such as AMPQ preserving require the order of messages. To resolve this issue, we can use a separate message queue for each consumer.
+- when the receiver crashes at any time (message receive process could be unsuccessful), we need a way to notify the message broker
+- usually we do not notify the sender because we are not in direct contact with the sender, but we are in direct contact with the message broker
 
+#### How to Handle Message Acknowledgement
+- The receiver will send an acknowledgment upon successful message received to the broker. 
+- Then the broker realizes that it can remove the message from its message bus.
 
-Sending continuously acknowledgement even for small messages is resource consuming, what is your recommendation to mitigate this challenge?
+#### messaging protocol - AMPQ
+- Note some messaging protocols such as AMPQ preserving require the order of messages. 
+- To resolve this issue, we can use a separate message queue for each consumer.
 
-Sending continuously
- 1. Periodically sending back the acknowledgements and buffer the
-acknowledgement even for small
-message acknowledgments on the receiver.
-messages is resource consuming,
-what is your recommendation to
-2. all messages might not required
-acknowledgement. Therefore, there
-is no need to send for every message
-mitigate this c
+#### Sending continuously Message Acknowledgement Recommendation
+- Sending continuously acknowledgement even for small messages is resource consuming (the messages are needed and they have to be sent out)
+- Periodically sending back the acknowledgements and buffer the acknowledgement even for small message acknowledgments on the receiver (buffering the message - accumulating the messages and then send it out)
+- all messages might not required acknowledgement. Therefore, there is no need to send for every message an acknowlegement
 
+#### Fault Tolerance in Stream Processing
+- Fault Tolerance in Batch Jobs - simply restart the job
+- Fault tolerance in stream processing - not as easy since the data available 2 hours ago might not be available right
+- we can create point ID or a label to keep a data, check point ID or use a time to label stream jobs and their order. When a job failed, the system should revert back to its predefined check point.
+- we can seperate a task to smaller sub-tasks in smaller units, and the process called micro-batching which is a sort of steam processing, can be used in both batching-processing or steam-processing
 
-Fault Tolerance in Stream Processing
-Fault tolerance in stream processing is not as easy as batch jobs.
-We can check point ID or use a time to label stream jobs and their order. When a job failed, the system should revert back to its predefined check point.
-  Reverting back to checkpoints are also implemented in micro batching which is a sort of steam processing (despite the name might be confusing)
-  
-  As with batch processing, we need to discard the partial output of any failed tasks. However, since a stream process is long-running and produces output continuously, we can’t simply discard all output. Instead, a finer-grained recovery mechanism can be used, based on microbatching, checkpointing, transactions, or idempotent writes.
-  
-  
+#### batch processing & stream processing
+> As with batch processing, we need to discard the partial output of any failed tasks. 
+> However, since a stream process is long-running and produces output continuously, we can not simply discard all output. 
+> Instead, a finer-grained recovery mechanism can be used, based on microbatching, checkpointing, transactions, or idempotent writes.
   
 #### Java Email Service
+- TCP Sockets
 1. Download mail-1.4.7.jar and add it into project libraries.
 2. Configure the email service credential.
 3. Create an email session (requires our email user name and password)
@@ -211,23 +210,30 @@ We can check point ID or use a time to label stream jobs and their order. When a
 5. Send the message
 
 
-
 ### Synchronous Messaging
-- near real time
-It is a style of communication between two software component that one component is waiting for another component to respond.
-Email and web messages are two good example of asynchronous messaging.
+- It is a style of communication between two software component that one component is waiting for another component to respond.
+- Example: Email and web messages - near real time
 
 #### Java Supports for Synchronous Messaging
-Packet based messaging (Use UDP for data transfer) 
-Stream based messaging (Use TCP for data transfer) 
-TCP: Transfer Control Protocol
-UDP: User Datagram Protocol
+- Packet based messaging (Use UDP for data transfer - User Datagram Protocol) 
+- Stream based messaging (Use TCP for data transfer - Transfer Control Protocol)
+- TCP connection is session aware, but UDP is session-less. 
+- There is no guarantee that UDP packets arrive correctly, also there is no guarantee on the delivery of the UDP packet.
+- Nevertheless, UDP is much faster than TCP, because there is no overhead. It is useful for communications that don’t require a guarantee for message delivery.
+- For example, assume we would like to distribute a video. In this scenario, few frame delays can be tolerated and there is no need to guarantee all message delivery. Therefore, UDP is favored over TCP.
 
-#### Java Supports for Synchronous Messaging
-TCP connection is session aware, but UDP is session-less. There is no guarantee that UDP packets arrive correctly, also
-there is no guarantee on the delivery of the UDP packet.
-Nevertheless, UDP is much faster than TCP, because there is no overhead. It is useful for communications that don’t require a guarantee for message delivery.
-For example, assume we would like to distribute a video. In this scenario, few frame delays can be tolerated and there is no need to guarantee all message delivery. Therefore, UDP is favored over TCP.
+#### Session-aware (TCP)
+- before it starts transmitting data, there is a call like handshake about the communication channel
+- there is an authentication like oaky we are all connnected then start
+- TCP connection is session aware
+
+#### Session-less (UDP)
+- we do not care other parties exist or accepting or whatever, i just throw the message out there
+- There is no guarantee that UDP packets arrive correctly and no guarantee on the delivery of the UDP packet.
+
+#### TCP vs UDP
+- UDP is much faster than TCP, because there is no overhead, no matter other party exists or accepts, just throw the message, no guarantees
+- UDP is useful for communications that don’t require a guarantee for message delivery, very good for the video stream
 
 #### Socket Based Communication
 - Client and server program could be located on a separate machines, but they could be also running on the same computer.
