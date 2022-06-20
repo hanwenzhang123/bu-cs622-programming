@@ -78,7 +78,15 @@ https://www.javatpoint.com/java-naming-conventions
 ## Downcasting vs Upcasting
 - upcasting: parent to be a child
 - downcasting(raise error): child to be parent, but child has more details so can not be parent
-
+```java
+//Upcasting:
+Parent p = new Child();
+//Downcasting (raise error):
+Child c = new Parent();
+//Correct:
+Parent p = new Child();
+Child c = new Child();
+```
 
 ## OOP Concepts
 #### Encapsulation
